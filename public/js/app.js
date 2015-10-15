@@ -154,6 +154,15 @@ var PlayerList = React.createClass({
 		this.setState({ user: user });
 		this.props.onNicknameChange(this.state.user);
 	},
+	isNicknameAvailable: function(nickname) {
+		for(var i = 0; i < this.state.players.length; i++) {
+			if (this.state.players[i].name.toLowerCase() == nickname.toLowerCase())
+			{
+				return false;
+			}
+		}
+		return true;
+	},
 	handlePlayerSubmit: function(nickname) {
 		// Choose a cat avatar
 		var catIndex = (++this.lastCatIndex == 5) ? 0 : this.lastCatIndex;
@@ -186,7 +195,7 @@ var PlayerList = React.createClass({
 			<div className="panel fullHeight">
 				<div className="panel-heading">
 					<ul id="user" className="list-group">
-						<Player key={this.state.user.name} player={this.state.user} isAI={false} statuses={this.props.statuses} onNicknameChange={this.handleNicknameChange} />
+						<Player key={this.state.user.name} player={this.state.user} isAI={false} statuses={this.props.statuses} onNicknameChange={this.handleNicknameChange} isNicknameValid={this.isNicknameAvailable} />
 					</ul>
 				</div>
 				<div className="panel-body">
@@ -444,7 +453,8 @@ var Player = React.createClass({
 	},
 	handleNicknameSubmit: function(e) {
 		e.preventDefault();
-		if (this.state.nickname.replace(/\s/g, "").length > 0) { // Check if not empty
+		if (this.state.nickname.replace(/\s/g, "").length > 0 && this.props.isNicknameValid(this.state.nickname))
+		{// Check if not empty and nickname available
 			this.props.onNicknameChange(this.state.nickname);
 			this.changeEditNickname();
 			this.lastNickname = this.state.nickname;

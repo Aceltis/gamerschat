@@ -1,13 +1,13 @@
 window.STATUSES = [
 	{name: "Online"},
-	{name: "Playing", games: ['Dota 2', 'The Witcher 3', 'HotS', 'Battlefield', 'Towerfall', 'QuakeLive', 'CS:GO']},
 	{name: "Away"},
+	{name: "Playing", games: ['Dota 2', 'The Witcher 3', 'HotS', 'Battlefield', 'Towerfall', 'QuakeLive', 'CS:GO']},
 ];
 
 window.PLAYERS = [
-	{status: 2, name: "Captain Reynolds", avatar: "captain.jpg", game: null},
-	{status: 2, name: "Don Pablo", avatar: "pablo.jpg", game: null},
-	{status: 1, name: "Sherlock", avatar: "sherlock.jpg", game: 'Dota 2'},
+	{status: 1, name: "Captain Reynolds", avatar: "captain.jpg", game: null},
+	{status: 1, name: "Don Pablo", avatar: "pablo.jpg", game: null},
+	{status: 2, name: "Sherlock", avatar: "sherlock.jpg", game: 'Dota 2'},
 	{status: 0, name: "Hodor", avatar: "hodor.jpg", game: null},
 ];
 
@@ -63,7 +63,7 @@ window.KNOWLEDGEBASE = {
 	],
 	comingBack: [
 		"I am back!",
-		"Okay, that was faster than I though.",
+		"Okay, that was faster than I thought.",
 		"Hello again!",
 		"Job's done!"
 	]
